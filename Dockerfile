@@ -1,3 +1,3 @@
 FROM nimmis/apache-php7 
 
-COPY ${PWD}/* /var/www/html/
+COPY /tmp/abc/* /var/www/html/

@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 /*
 // mysql_connect("database-host", "username", "password")
 $conn = mysql_connect("localhost","root","root") 
@@ -18,6 +19,6 @@ $databaseName = 'test';
 $databaseUsername = 'root';
 $databasePassword = 'root';
 
-$mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName); 
+$mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName) or die(mysql_error($mysqli); 
  
 ?>

@@ -38,7 +38,8 @@ job('databaseConfigure') {
      }
     }
     steps{
-        shell ('make --file=database/Makefile build \n'+
+        shell ( 'cd database \n' +
+'make --file=database/Makefile build \n'+
 'make --file=database/Makefile run')
     }
 }

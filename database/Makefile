@@ -1,5 +1,5 @@
 build:
-	docker build --no-cache -t upwork/mysql 
+	docker build --no-cache -t upwork/mysql . 
 
 run2:
 	docker rm -f jenkins2 || true

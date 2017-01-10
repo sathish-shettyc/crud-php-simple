@@ -16,5 +16,6 @@ RUN  mkdir -p /usr/share/jenkins/ref/plugins
 RUN  chmod +x /tmp/batch-install-jenkins-plugins.sh
 RUN  /tmp/batch-install-jenkins-plugins.sh --plugins /tmp/plugins.txt  --plugindir /usr/share/jenkins/ref/plugins
  
-ADD JobCreatorConfig.xml /tmp/config.xml
-RUN chown -R jenkins:root /var/jenkins_home/jobs/JobsCreator
+RUN mkdir -p /var/jenkins_home/jobs/JobsCreator
+COPY JobCreatorConfig.xml /var/jenkins_home/jobs/JobsCreator/config.xml
+RUN chown -R jenkins:jenkins /var/jenkins_home/jobs/JobsCreator

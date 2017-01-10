@@ -86,7 +86,7 @@ job('ImageGenerator') {
             forcePull(false)
             createFingerprints(true)
             skipDecorate()
-	    dockerfileDirectory('application')
+	    dockerfileDirectory('application/Dockerfile')
         }
     }
 }

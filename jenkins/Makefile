@@ -6,5 +6,5 @@ run:
 	docker run -it -P -d --name jenkins_test upwork/jenkins
 
 run2:
-	docker run -it -P -d --name jenkins2 upwork/jenkins
-	
+	docker rm -f jenkins2 || true
+	docker run -it -P -d  -v /var/run/docker.sock:/var/run/docker.sock  -v $$(which docker):/bin/docker --name jenkins2 upwork/jenkins	

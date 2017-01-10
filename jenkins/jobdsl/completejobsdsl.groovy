@@ -10,7 +10,7 @@ job('dockerRegistry') {
   scm {
         git {
       remote {
-        url("https://github.com/saurabhvaj/crud-php-simple.git")
+        url("https://github.com/OpsTree/crud-php-simple.git")
       }
       branch("*/master")
      }
@@ -32,7 +32,7 @@ job('databaseConfigure') {
   scm {
         git {
       remote {
-        url("https://github.com/saurabhvaj/crud-php-simple.git")
+        url("https://github.com/OpsTree/crud-php-simple.git")
       }
       branch("*/master")
      }
@@ -96,7 +96,7 @@ job('ImageGenerator') {
      scm {
         git {
       remote {
-        url("https://github.com/saurabhvaj/crud-php-simple.git")
+        url("https://github.com/OpsTree/crud-php-simple.git")
       }
       branch("*/master")
      }
@@ -144,7 +144,7 @@ pipelineJob("CodeDeploymentPipeline") {
           remote {
             name('')
             refspec('')
-            url("https://github.com/saurabhvaj/crud-php-simple.git")
+            url("https://github.com/OpsTree/crud-php-simple.git")
           }
         }
         scriptPath('jenkins/pipelinesteps/CodeDeploymentPipelineSteps.groovy')

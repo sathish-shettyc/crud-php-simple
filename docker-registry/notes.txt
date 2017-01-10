@@ -1,0 +1,2 @@
+docker tag upwork/jenkins localhost:5000/registry-demo
+docker push localhost:5000/registry-demo

@@ -27,4 +27,4 @@ Run  your first job
 
 Create database schema with 
 
-docker exec some-mysql sh -c 'exec mysql -uroot -p"root"' < application/code/database.sql
+docker exec some-mysql sh -c 'mysql -uroot -p"root" < /tmp/database.sql '

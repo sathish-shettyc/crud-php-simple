@@ -12,9 +12,9 @@ RUN apt-get update && apt-get install -y vim curl openssh-server
 
 COPY batch-install-jenkins-plugins.sh /tmp/batch-install-jenkins-plugins.sh
 COPY plugins.txt /tmp/plugins.txt
-RUN  mkdir -p /var/lib/jenkins/ref/plugins
+RUN  mkdir -p /usr/share/jenkins/ref/plugins
 RUN  chmod +x /tmp/batch-install-jenkins-plugins.sh
-RUN  /tmp/batch-install-jenkins-plugins.sh --plugins /tmp/plugins.txt  --plugindir /var/lib/jenkins/ref/plugins
+RUN  /tmp/batch-install-jenkins-plugins.sh --plugins /tmp/plugins.txt  --plugindir /usr/share/jenkins/ref/plugins
  
 ADD JobCreatorConfig.xml /tmp/config.xml
 RUN chown -R jenkins:root /var/jenkins_home/jobs/JobsCreator

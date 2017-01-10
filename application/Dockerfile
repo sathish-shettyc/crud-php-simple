@@ -1,3 +1,3 @@
 FROM nimmis/apache-php7 
 
-COPY code /var/www/html/
+COPY applicaton/code /var/www/html/

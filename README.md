@@ -25,3 +25,6 @@ Create a jenkins job to initialize other jobs. Using job dsl script present at j
 
 Run  your first job
 
+Create database schema with 
+
+docker exec some-mysql sh -c 'exec mysql -uroot -p"root"' < application/code/database.sql

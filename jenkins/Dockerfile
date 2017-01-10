@@ -1,7 +1,7 @@
 FROM jenkins
 
 USER root
-RUN apt-get update && apt-get install -y vim curl openssh-server
+RUN apt-get update && apt-get install -y vim curl openssh-server make lxc
 
 #USER jenkins
 

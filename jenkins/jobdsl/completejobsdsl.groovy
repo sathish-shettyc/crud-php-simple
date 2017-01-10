@@ -1,3 +1,5 @@
+
+
 job('dockerRegistry') {
   description('Docker Registry')
   logRotator {
@@ -20,6 +22,26 @@ job('dockerRegistry') {
     }
 }
 
+job('databaseConfigure') {
+  description('databaseConfigure')
+  logRotator {
+        daysToKeep(60)
+        numToKeep(20)
+        artifactDaysToKeep(1)
+    }
+  scm {
+        git {
+      remote {
+        url("https://github.com/saurabhvaj/crud-php-simple.git")
+      }
+      branch("*/master")
+     }
+    }
+    steps{
+        shell ('make --file=database/Makefile build \n'+
+'make --file=database/Makefile run')
+    }
+}
 
 job('CodeCoverage') {
   description('CodeCoverage')

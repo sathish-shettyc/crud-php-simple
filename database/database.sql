@@ -1,4 +1,4 @@
-create database test IF NOT EXIST;
+create database IF NOT EXIST test;
 
 use test;
 

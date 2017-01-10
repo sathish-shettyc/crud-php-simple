@@ -1,3 +1,28 @@
+docker-registry
+
+job('CodeDeployer') {
+  description('CodeDeployer')
+  logRotator {
+        daysToKeep(60)
+        numToKeep(20)
+        artifactDaysToKeep(1)
+    }
+  scm {
+        git {
+      remote {
+        url("https://github.com/saurabhvaj/crud-php-simple.git")
+      }
+      branch("*/master")
+     }
+    }
+
+    steps{
+        shell ("cd docker-registry \n"  +
+"make run")
+    }
+}
+
+
 job('CodeCoverage') {
   description('CodeCoverage')
   logRotator {

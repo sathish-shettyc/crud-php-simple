@@ -1,7 +1,5 @@
-docker-registry
-
-job('CodeDeployer') {
-  description('CodeDeployer')
+job('dockerRegistry') {
+  description('Docker Registry')
   logRotator {
         daysToKeep(60)
         numToKeep(20)

@@ -6,7 +6,7 @@ job('CodeCoverage') {
         artifactDaysToKeep(1)
     }
     steps{
-    	shell ("This is code Coverege")
+    	shell ('echo "This is code Coverege"')
     }
 }
 
@@ -20,7 +20,7 @@ job('CodeQuality') {
         artifactDaysToKeep(1)
     }
     steps{
-    	shell ("This is code Quality")
+    	shell ('echo "This is code Quality"')
     }
 }
 
@@ -34,7 +34,7 @@ job('CodeStability') {
         artifactDaysToKeep(1)
     }
     steps{
-    	shell ("This is Code Stability")
+    	shell ('echo "This is Code Stability"')
     }
 }
 

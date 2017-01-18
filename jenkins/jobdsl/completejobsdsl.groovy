@@ -1,8 +1,16 @@
 job('CodeStability') {
     logRotator(-1, 10)
-    scm {
-        git('https://github.com/OpsTree/ContinuousIntegration.git')
-    }
+
+
+      scm {
+        git {
+      remote {
+        url("https://github.com/OpsTree/ContinuousIntegration.git")
+      }
+      branch("*/master")
+     }
+}
+
     triggers {
         scm('H/15 * * * *')
     }
@@ -17,9 +25,18 @@ job('CodeStability') {
 job('CodeQuality') {
     logRotator(-1, 10)
     
-    scm {
-        git('https://github.com/OpsTree/ContinuousIntegration.git')
-    }
+
+
+scm {
+        git {
+      remote {
+        url("https://github.com/OpsTree/ContinuousIntegration.git")
+      }
+      branch("*/master")
+     }
+
+}
+
     triggers {
         scm('H/15 * * * *')
     }
@@ -36,9 +53,18 @@ job('CodeQuality') {
 job('CodeCoverage') {
     logRotator(-1, 10)
     
-    scm {
-        git('https://github.com/OpsTree/ContinuousIntegration.git')
-    }
+
+
+scm {
+        git {
+      remote {
+        url("https://github.com/OpsTree/ContinuousIntegration.git")
+      }
+      branch("*/master")
+     }
+
+}
+
     triggers {
         scm('H/15 * * * *')
     }

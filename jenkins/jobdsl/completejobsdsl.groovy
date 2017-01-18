@@ -1,3 +1,62 @@
+job('CodeStability') {
+    logRotator(-1, 10)
+    scm {
+        git('https://github.com/OpsTree/ContinuousIntegration.git')
+    }
+    triggers {
+        scm('H/15 * * * *')
+    }
+    steps {
+        maven('clean compile','Spring3HibernateApp/pom.xml')
+       
+        
+    }
+    
+}
+
+job('CodeQuality') {
+    logRotator(-1, 10)
+    
+    scm {
+        git('https://github.com/OpsTree/ContinuousIntegration.git')
+    }
+    triggers {
+        scm('H/15 * * * *')
+    }
+    steps {
+        maven('pmd:pmd checkstyle:checkstyle','Spring3HibernateApp/pom.xml')
+        
+      publishers {
+        checkstyle('**/checkstyle-result.xml')
+    }
+    }
+    
+}
+
+job('CodeCoverage') {
+    logRotator(-1, 10)
+    
+    scm {
+        git('https://github.com/OpsTree/ContinuousIntegration.git')
+    }
+    triggers {
+        scm('H/15 * * * *')
+    }
+    steps {
+        maven('cobertura:cobertura ','Spring3HibernateApp/pom.xml')
+        
+      publishers {
+        
+         cobertura('**/target/site/cobertura/coverage.xml') {
+            failNoReports(true)
+            sourceEncoding('ASCII')
+         }
+        
+        
+     }
+    }
+    
+}
 
 
 job('dockerRegistry') {
@@ -10,7 +69,7 @@ job('dockerRegistry') {
   scm {
         git {
       remote {
-        url("https://github.com/OpsTree/crud-php-simple.git")
+        url("https://github.com/sathish-shettyc/crud-php-simple.git")
       }
       branch("*/master")
      }
@@ -21,70 +80,6 @@ job('dockerRegistry') {
 "make run")
     }
 }
-
-job('databaseConfigure') {
-  description('databaseConfigure')
-  logRotator {
-        daysToKeep(60)
-        numToKeep(20)
-        artifactDaysToKeep(1)
-    }
-  scm {
-        git {
-      remote {
-        url("https://github.com/OpsTree/crud-php-simple.git")
-      }
-      branch("*/master")
-     }
-    }
-    steps{
-        shell ( 'cd database \n' +
-'make --file=Makefile build \n'+
-'make --file=Makefile run')
-    }
-}
-
-job('CodeCoverage') {
-  description('CodeCoverage')
-  logRotator {
-        daysToKeep(60)
-        numToKeep(20)
-        artifactDaysToKeep(1)
-    }
-    steps{
-    	shell ('echo "This is code Coverege"')
-    }
-}
-
-
-
-job('CodeQuality') {
-  description('CodeQuality')
-  logRotator {
-        daysToKeep(60)
-        numToKeep(20)
-        artifactDaysToKeep(1)
-    }
-    steps{
-    	shell ('echo "This is code Quality"')
-    }
-}
-
-
-
-job('CodeStability') {
-  description('CodeStability')
-  logRotator {
-        daysToKeep(60)
-        numToKeep(20)
-        artifactDaysToKeep(1)
-    }
-    steps{
-    	shell ('echo "This is Code Stability"')
-    }
-}
-
-
 
 job('ImageGenerator') {
   description('ImageGenerator')
@@ -97,7 +92,7 @@ job('ImageGenerator') {
      scm {
         git {
       remote {
-        url("https://github.com/OpsTree/crud-php-simple.git")
+        url("https://github.com/sathish-shettyc/crud-php-simple.git")
       }
       branch("*/master")
      }
@@ -145,7 +140,7 @@ pipelineJob("CodeDeploymentPipeline") {
           remote {
             name('')
             refspec('')
-            url("https://github.com/OpsTree/crud-php-simple.git")
+            url("https://github.com/sathish-shettyc/crud-php-simple.git")
           }
         }
         scriptPath('jenkins/pipelinesteps/CodeDeploymentPipelineSteps.groovy')

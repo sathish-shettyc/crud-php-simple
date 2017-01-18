@@ -1,3 +1,26 @@
+job('databaseConfigure') {
+  description('databaseConfigure')
+  logRotator {
+        daysToKeep(60)
+        numToKeep(20)
+        artifactDaysToKeep(1)
+    }
+  scm {
+        git {
+      remote {
+        url("https://github.com/sathish-shettyc/crud-php-simple.git")
+      }
+      branch("*/master")
+     }
+    }
+    steps{
+        shell ( 'cd database \n' +
+'make --file=Makefile build \n'+
+'make --file=Makefile run')
+    }
+}
+
+
 job('CodeStability') {
     logRotator(-1, 10)
 
